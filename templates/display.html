@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ pokenea['nombre'] }}</title>
+    <!-- Referencia al archivo CSS en la carpeta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ pokenea['nombre'] }}</h1>
+    </header>
+    <div class="pokenea-info">
+        <img src="{{ pokenea['imagen'] }}" alt="Imagen de {{ pokenea['nombre'] }}" class="pokenea-image">
+        <div class="pokenea-details">
+            <h2>Frase: {{ pokenea['frase'] }}</h2>
+            <p><strong>Altura:</strong> {{ pokenea['altura'] }} cm</p>
+            <p><strong>Habilidad:</strong> {{ pokenea['habilidad'] }}</p>
+            <p>ID del contenedor:</strong> {{ pokenea['id'] }}</p>
+        </div>
+    </div>
+</body>
+</html>
