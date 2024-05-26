@@ -1,8 +1,9 @@
+import os
 from flask import Flask, jsonify, render_template
 import random
 
 app = Flask(__name__)
-port =  8000
+port = 8000
 
 # Arreglo de Pokeneas
 pokeneas = [
@@ -22,22 +23,25 @@ pokeneas = [
 @app.route('/pokenea/json')
 def pokenea_json():
     pokenea = random.choice(pokeneas)
+    container_id = os.uname()[1] 
     return jsonify({
         'id': pokenea['id'],
         'nombre': pokenea['nombre'],
         'altura': pokenea['altura'],
         'habilidad': pokenea['habilidad'],
-        'contenedor_id': 'ID_DEL_CONTENEDOR'  # Suponiendo que se obtenga de otra manera
+        'contenedor_id':  container_id  # Suponiendo que se obtenga de otra manera
     })
 
 # Ruta que muestra por pantalla la imagen y frase de un Pokenea aleatorio
 @app.route('/pokenea/display')
 def pokenea_display():
+    container_id = os.uname()[1] 
     pokenea = random.choice(pokeneas)
-    return render_template('display.html', pokenea=pokenea, contenedor_id='ID_DEL_CONTENEDOR')
+    return render_template('display.html', pokenea=pokenea, contenedor_id=container_id)
 
 if __name__ == '__main__':
     app.run(debug=True,
-            host="0.0.0.0", port=port
-            )
+            host="0.0.0.0", 
+            port=port,
+    )
     
