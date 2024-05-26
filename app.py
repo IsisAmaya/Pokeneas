@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template
 import random
 
 app = Flask(__name__)
+port =  8000
 
 # Arreglo de Pokeneas
 pokeneas = [
@@ -37,6 +38,6 @@ def pokenea_display():
 
 if __name__ == '__main__':
     app.run(debug=True,
-            SERVER_NAME="0.0.0.0:8000"
+            host="0.0.0.0", port=port
             )
     
