@@ -36,4 +36,7 @@ def pokenea_display():
     return render_template('display.html', pokenea=pokenea, contenedor_id='ID_DEL_CONTENEDOR')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,
+            SERVER_NAME="0.0.0.0:8000"
+            )
+    
